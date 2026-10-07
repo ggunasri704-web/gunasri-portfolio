@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gunasri P | Computer Science & Engineering</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #08090d;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* ================= NAVBAR ================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(8, 9, 13, 0.88);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-container {
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #8b5cf6;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #b8b8c5;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding-top: 80px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: #7c3aed;
+
+    filter: blur(180px);
+
+    opacity: 0.15;
+
+    top: 5%;
+    right: -150px;
+}
+
+.hero-content {
+    max-width: 850px;
+    position: relative;
+    z-index: 1;
+}
+
+.hello {
+    color: #a78bfa;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(45px, 7vw, 82px);
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+.gradient-text {
+    background: linear-gradient(
+        90deg,
+        #a78bfa,
+        #60a5fa
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    max-width: 680px;
+
+    font-size: 19px;
+
+    color: #a7a7b3;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 24px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #2563eb
+    );
+
+    color: white;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(124,58,237,0.25);
+}
+
+.secondary-btn {
+    border: 1px solid #343642;
+
+    color: #ddd;
+}
+
+.secondary-btn:hover {
+    border-color: #8b5cf6;
+
+    color: #a78bfa;
+
+    transform: translateY(-3px);
+}
+
+/* ================= SECTIONS ================= */
+
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    color: #8e8e9b;
+
+    margin-bottom: 45px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-box {
+    padding: 35px;
+
+    border: 1px solid #262832;
+
+    background: #0d0f15;
+
+    border-radius: 18px;
+}
+
+.about-box p {
+    color: #b4b4c0;
+
+    font-size: 17px;
+
+    margin-bottom: 15px;
+}
+
+.about-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+
+    gap: 18px;
+}
+
+.skill-card {
+    background: #0d0f15;
+
+    border: 1px solid #262832;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #7c3aed;
+}
+
+.skill-icon {
+    font-size: 28px;
+
+    margin-bottom: 12px;
+}
+
+.skill-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    margin-bottom: 7px;
+}
+
+.skill-card p {
+    color: #8f8f9d;
+
+    font-size: 14px;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(270px, 1fr));
+
+    gap: 20px;
+}
+
+.project-card {
+    background: #0d0f15;
+
+    border: 1px solid #262832;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #6366f1;
+}
+
+.project-number {
+    color: #8b5cf6;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 22px;
+
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: #92929e;
+
+    font-size: 15px;
+
+    margin-bottom: 20px;
+}
+
+.project-link {
+    color: #a78bfa;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.project-link:hover {
+    color: #60a5fa;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box {
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124,58,237,0.12),
+            rgba(37,99,235,0.08)
+        );
+
+    border: 1px solid #292b38;
+
+    border-radius: 22px;
+}
+
+.contact-box h2 {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+.contact-box p {
+    color: #9999a6;
+
+    margin-bottom: 30px;
+}
+
+.contact-button {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #2563eb
+        );
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+
+    margin-bottom: 30px;
+}
+
+.contact-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(124,58,237,0.25);
+}
+
+/* ================= SOCIAL LINKS ================= */
+
+.social-links {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    padding: 12px 20px;
+
+    border: 1px solid #30323e;
+
+    border-radius: 9px;
+
+    color: #c6c6d0;
+
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    border-color: #8b5cf6;
+
+    color: #a78bfa;
+
+    transform: translateY(-3px);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px 15px;
+
+    border-top: 1px solid #20222b;
+
+    color: #777783;
+
+    font-size: 14px;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .nav-container {
+        height: 65px;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .hero {
+        min-height: 90vh;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 75px 0;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .contact-box h2 {
+        font-size: 32px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+<div class="container nav-container">
+
+<a href="#home" class="logo">
+    Gunasri<span>.</span>
+</a>
+
+<ul class="nav-links">
+
+<li>
+<a href="#home">Home</a>
+</li>
+
+<li>
+<a href="#about">About</a>
+</li>
+
+<li>
+<a href="#skills">Skills</a>
+</li>
+
+<li>
+<a href="#projects">Projects</a>
+</li>
+
+<li>
+<a href="#contact">Contact</a>
+</li>
+
+</ul>
+
+</div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="hello">
+    Hello 👋🏻
+</div>
+
+<h1>
+    I'm
+    <span class="gradient-text">
+        Gunasri P
+    </span>
+</h1>
+
+<p>
+    Computer Science & Engineering Student passionate about
+    Artificial Intelligence, Data Science, Web Development
+    and creating innovative digital solutions.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#projects" class="btn primary-btn">
+    View My Projects
+</a>
+
+<a href="#contact" class="btn secondary-btn">
+    Contact Me
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+<div class="container">
+
+<h2 class="section-title">
+    About Me
+</h2>
+
+<p class="section-subtitle">
+    A little about who I am and what I enjoy building.
+</p>
+
+<div class="about-box">
+
+<p>
+    I'm Gunasri P, a Computer Science & Engineering student
+    with a strong interest in Artificial Intelligence,
+    Data Science, software development and modern technologies.
+</p>
+
+<p>
+    I enjoy learning programming, developing websites,
+    exploring Artificial Intelligence and working on
+    innovative technology projects.
+</p>
+
+<p>
+    My goal is to become a skilled technology professional
+    and build useful, innovative and real-world solutions.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+<div class="container">
+
+<h2 class="section-title">
+    Skills
+</h2>
+
+<p class="section-subtitle">
+    Technologies and tools I am learning and working with.
+</p>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+
+<div class="skill-icon">🐍</div>
+
+<h3>Python</h3>
+
+<p>
+Programming and problem solving
+</p>
+
+</div>
+
+
+<div class="skill-card">
+
+<div class="skill-icon">☕</div>
+
+<h3>Java</h3>
+
+<p>
+Object-oriented programming
+</p>
+
+</div>
+
+
+<div class="skill-card">
+
+<div class="skill-icon">💻</div>
+
+<h3>C Programming</h3>
+
+<p>
+Programming fundamentals and logic
+</p>
+
+</div>
+
+
+<div class="skill-card">
+
+<div class="skill-icon">🌐</div>
+
+<h3>HTML & CSS</h3>
+
+<p>
+Modern responsive web design
+</p>
+
+</div>
+
+
+<div class="skill-card">
+
+<div class="skill-icon">⚡</div>
+
+<h3>JavaScript</h3>
+
+<p>
+Interactive web experiences
+</p>
+
+</div>
+
+
+<div class="skill-card">
+
+<div class="skill-icon">🔗</div>
+
+<h3>Git & GitHub</h3>
+
+<p>
+Version control and project hosting
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+<div class="container">
+
+<h2 class="section-title">
+    Projects
+</h2>
+
+<p class="section-subtitle">
+    Some of the things I have built and explored.
+</p>
+
+<div class="projects-grid">
+
+
+<div class="project-card">
+
+<div class="project-number">
+    PROJECT 01
+</div>
+
+<h3>
+    Personal Portfolio
+</h3>
+
+<p>
+A responsive personal portfolio website designed
+to showcase my skills, projects and professional
+profile.
+</p>
+
+<a
+href="https://github.com/ggunasri704-web"
+target="_blank"
+rel="noopener noreferrer"
+class="project-link">
+
+View on GitHub →
+
+</a>
+
+</div>
+
+
+<div class="project-card">
+
+<div class="project-number">
+    PROJECT 02
+</div>
+
+<h3>
+    AI & Technology
+</h3>
+
+<p>
+Exploring Artificial Intelligence and emerging
+technologies through practical learning and
+projects.
+</p>
+
+<a
+href="https://github.com/ggunasri704-web"
+target="_blank"
+rel="noopener noreferrer"
+class="project-link">
+
+Explore GitHub →
+
+</a>
+
+</div>
+
+
+<div class="project-card">
+
+<div class="project-number">
+    PROJECT 03
+</div>
+
+<h3>
+    Web Development
+</h3>
+
+<p>
+Building clean and responsive websites using
+HTML, CSS and JavaScript.
+</p>
+
+<a
+href="https://github.com/ggunasri704-web"
+target="_blank"
+rel="noopener noreferrer"
+class="project-link">
+
+Explore GitHub →
+
+</a>
+
+</div>
+
+
+<div class="project-card">
+
+<div class="project-number">
+    PROJECT 04
+</div>
+
+<h3>
+    Innovation Projects
+</h3>
+
+<p>
+Working on innovative technology ideas that can
+solve real-world problems.
+</p>
+
+<a
+href="https://github.com/ggunasri704-web"
+target="_blank"
+rel="noopener noreferrer"
+class="project-link">
+
+Explore GitHub →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<h2>
+    Let's Connect
+</h2>
+
+<p>
+    Interested in collaborating, discussing projects,
+    or simply connecting? Feel free to reach out.
+</p>
+
+
+<a
+href="#contact-links"
+class="contact-button">
+
+Contact Me
+
+</a>
+
+
+<div
+class="social-links"
+id="contact-links">
+
+
+<!-- LINKEDIN -->
+
+<a
+href="https://www.linkedin.com/in/gunasri-gunasri-5a10363b7?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+target="_blank"
+rel="noopener noreferrer">
+
+🔗 LinkedIn
+
+</a>
+
+
+<!-- GITHUB -->
+
+<a
+href="https://github.com/ggunasri704-web"
+target="_blank"
+rel="noopener noreferrer">
+
+💻 GitHub
+
+</a>
+
+
+<!-- EMAIL -->
+
+<a
+href="mailto:ggunasri704@gmail.com">
+
+✉️ Email
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+© 2026 Gunasri P. All Rights Reserved.
+
+</footer>
+
+</body>
+</html>
